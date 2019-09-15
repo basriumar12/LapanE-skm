@@ -2,6 +2,7 @@ package com.example.lapane_skm.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.example.lapane_skm.R
@@ -66,6 +67,22 @@ fun showErrorMessage(message: String?) {
  fun dismissProgressDialog() {
         if (loading.isShowing)
             loading.dismiss()
+    }
+
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this@BaseActivity)
+        builder.setTitle("Info ")
+        builder.setMessage("apakah anda ingin membatalkan pengisian pertanyaan ?")
+        //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
+
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+            finish()
+        }
+        builder.setNegativeButton(android.R.string.no) { dialog, which ->
+
+        }
+
+        builder.show()
     }
 
 

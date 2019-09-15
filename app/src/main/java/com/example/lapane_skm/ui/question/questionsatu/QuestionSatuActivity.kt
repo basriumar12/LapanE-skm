@@ -146,23 +146,7 @@ class QuestionSatuActivity : BaseActivity() {
 
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
 
-        val builder = AlertDialog.Builder(this@QuestionSatuActivity)
-        builder.setTitle("Info ")
-        builder.setMessage("apakah anda ingin keluar ?")
-        //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
-
-        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-            finish()
-        }
-        builder.setNegativeButton(android.R.string.no) { dialog, which ->
-            finish()
-        }
-
-        builder.show()
-    }
 
     public fun openFragment(fragment: Fragment) {
         if (savedInstanceState == null) {
