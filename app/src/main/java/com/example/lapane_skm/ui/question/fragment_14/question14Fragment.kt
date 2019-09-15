@@ -158,7 +158,7 @@ class Question14Fragment : BaseFragment() {
             override fun onFailure(call: Call<ResponseSumbitSurvey>, t: Throwable) {
                 Log.e("tag", "gagal ${t.message}")
                 dismissProgressDialog()
-                showInfoMessage("Submit Data Error Periksa Internet")
+                showErrorMessage("Submit Data Error, Periksa Internet")
             }
 
             override fun onResponse(call: Call<ResponseSumbitSurvey>, response: Response<ResponseSumbitSurvey>) {
