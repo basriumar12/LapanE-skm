@@ -14,14 +14,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.example.lapane_skm.R
 import com.example.lapane_skm.save.PrefSaveQuestion6
-import com.example.lapane_skm.save.PrefSaveQuestionDua
 import com.example.lapane_skm.ui.question.BaseFragment
 import com.example.lapane_skm.ui.question.fragment_7.Question7Fragment
 import com.example.lapane_skm.ui.question.fragment_dua.JabawanDuaAdapter
 import com.example.lapane_skm.ui.question.fragment_lima.QuestionLimaFragment
 import com.example.lapane_skm.ui.question.questionsatu.ModelSatuanKerja
-import com.example.lapane_skm.ui.question.questionsatu.QuestionSatuActivity
-import com.example.lapane_skm.ui.question.fragment_tiga.QuestionTigaFragment
 import kotlinx.android.synthetic.main.activity_question_satu.*
 import kotlinx.android.synthetic.main.fragment_question_dua.view.*
 
@@ -129,11 +126,13 @@ class Question6Fragment : BaseFragment() {
                 )
             )
 
-        val adapter = JabawanDuaAdapter(activity, data)
+
+
+        val adapter = Jabawan6Adapter(activity, data)
         rvDataQuestion?.adapter = adapter
         adapter.notifyDataSetChanged()
 
-        adapter.setOnItemClickListener(object : JabawanDuaAdapter.OnItemClickListener {
+        adapter.setOnItemClickListener(object : Jabawan6Adapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 activity?.let { PrefSaveQuestion6(it).setData(data.get(position).id.toString()) }
                 openFragment(Question7Fragment())

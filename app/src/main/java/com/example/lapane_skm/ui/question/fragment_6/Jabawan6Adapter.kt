@@ -10,9 +10,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lapane_skm.R
 import com.example.lapane_skm.save.PrefSaveQuestion6
-import com.example.lapane_skm.save.PrefSaveQuestionEmpat
-import com.example.lapane_skm.save.PrefSaveQuestionLima
-import com.example.lapane_skm.save.PrefSaveQuestionTiga
 import com.example.lapane_skm.ui.question.questionsatu.ModelSatuanKerja
 import kotlinx.android.synthetic.main.item_layout_jawaban.view.*
 

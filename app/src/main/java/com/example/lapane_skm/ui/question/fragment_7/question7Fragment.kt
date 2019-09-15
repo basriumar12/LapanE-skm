@@ -115,11 +115,11 @@ class Question7Fragment : BaseFragment() {
                 )
             )
 
-        val adapter = JabawanDuaAdapter(activity, data)
+        val adapter = Jabawan7Adapter(activity, data)
         rvDataQuestion?.adapter = adapter
         adapter.notifyDataSetChanged()
 
-        adapter.setOnItemClickListener(object : JabawanDuaAdapter.OnItemClickListener {
+        adapter.setOnItemClickListener(object : Jabawan7Adapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 activity?.let { PrefSaveQuestion7(it).setData(data.get(position).id.toString()) }
                 openFragment(Question8Fragment())

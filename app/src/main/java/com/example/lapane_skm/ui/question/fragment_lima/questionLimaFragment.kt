@@ -111,7 +111,7 @@ class QuestionLimaFragment : BaseFragment() {
                     "S1 "
                 ),
                 ModelSatuanKerja(
-                    "2",
+                    "4",
                     "S2 Ke Atas"
                 )
             )
