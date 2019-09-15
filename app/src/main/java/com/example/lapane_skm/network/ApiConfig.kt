@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 class ApiConfig {
 
 
-//
+
    // val base_url = "http://192.168.43.110:8080/e-skm/api/"
     val base_url = "http://a7862f51.ngrok.io/website/e-skm/api/"
 
