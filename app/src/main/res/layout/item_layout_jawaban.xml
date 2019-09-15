@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+
+    <LinearLayout
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_text_submit"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/tv_title_jawaban"
+                android:padding="16dp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:text="@string/data_jawaban"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        <View
+                android:visibility="gone"
+                android:background="@color/colorAccent"
+                android:id="@+id/check"
+                android:layout_width="match_parent"
+              android:layout_height="10dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
