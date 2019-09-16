@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lapane_skm.R
 import com.example.lapane_skm.model.ResponseSumbitSurvey
 import com.example.lapane_skm.network.ApiConfig
+import com.example.lapane_skm.network.ApiInterface
+import com.example.lapane_skm.network.ServiceGenerator
 import com.example.lapane_skm.save.*
 import com.example.lapane_skm.ui.main.MainActivity
 import com.example.lapane_skm.ui.question.BaseFragment
@@ -134,6 +136,79 @@ class Question14Fragment : BaseFragment() {
         var perilaku = activity?.let { PrefSaveQuestion12(it).getData()?.toInt() }
         var penanganan = activity?.let { PrefSaveQuestion13(it).getData()?.toInt() }
         var sarpras = activity?.let { PrefSaveQuestion14(it).getData()?.toInt() }
+
+        //uncoment, jgn lupa ganti base url di class Service Generator
+        //isi username dan pass
+//        val api = ServiceGenerator.createService(ApiInterface::class.java, "", "")
+//        api.postData(
+//            sator!!,
+//            layanan!!,
+//            usia!!,
+//            gender!!,
+//            pendidikan!!,
+//            perkerjaan!!,
+//            persyaratan!!,
+//            smp!!,
+//            waktu!!,
+//            jenis!!,
+//            kompotensi!!,
+//            perilaku!!,
+//            penanganan!!,
+//            sarpras!!
+//
+//        ).enqueue(object : retrofit2.Callback<ResponseSumbitSurvey> {
+//
+//            override fun onFailure(call: Call<ResponseSumbitSurvey>, t: Throwable) {
+//                Log.e("tag", "gagal ${t.message}")
+//                dismissProgressDialog()
+//                showErrorMessage("Submit Data Error, Periksa Internet")
+//            }
+//
+//            override fun onResponse(call: Call<ResponseSumbitSurvey>, response: Response<ResponseSumbitSurvey>) {
+//                Log.e("tag", "sukses ${response.isSuccessful}")
+//
+//                if (response.isSuccessful) {
+//                    dismissProgressDialog()
+//
+//
+//                    val builder = AlertDialog.Builder(activity!!)
+//                    builder.setTitle("Info ")
+//                    builder.setMessage("Data anda berhasil di kirim, terima kasih telah memberi jawaban survey")
+//                    builder.setCancelable(false)
+//                    //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
+//
+//                    builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+//                        activity?.let { PrefSaveQuestionSatu(it).setData("") }
+//                        activity?.let { PrefSaveQuestionDua(it).setData("") }
+//                        activity?.let { PrefSaveQuestionTiga(it).setData("") }
+//                        activity?.let { PrefSaveQuestionEmpat(it).setData("") }
+//                        activity?.let { PrefSaveQuestionLima(it).setData("") }
+//                        activity?.let { PrefSaveQuestion6(it).setData("") }
+//                        activity?.let { PrefSaveQuestion7(it).setData("") }
+//                        activity?.let { PrefSaveQuestion8(it).setData("") }
+//                        activity?.let { PrefSaveQuestion9(it).setData("") }
+//                        activity?.let { PrefSaveQuestion10(it).setData("") }
+//                        activity?.let { PrefSaveQuestion11(it).setData("") }
+//                        activity?.let { PrefSaveQuestion12(it).setData("") }
+//                        activity?.let { PrefSaveQuestion13(it).setData("") }
+//                        activity?.let { PrefSaveQuestion14(it).setData("") }
+//
+//                        intentTo(MainActivity::class.java)
+//                    }
+//
+//
+//
+//
+//                    builder.show()
+//
+//
+//
+//
+//
+//                }
+//            }
+//        })
+
 
 
         showProgressDialog("Submit Data ")
