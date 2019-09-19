@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceGenerator {
 
 
-    val API_BASE_URL = "http://103.51.131.60/service-majalah/"
+    val API_BASE_URL = "http://103.51.131.60/service-eskm/api/"
 
     private val httpClient = OkHttpClient.Builder()
 

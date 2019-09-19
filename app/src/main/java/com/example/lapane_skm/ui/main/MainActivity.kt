@@ -6,8 +6,10 @@ import com.example.lapane_skm.R
 import com.example.lapane_skm.save.*
 import com.example.lapane_skm.ui.question.questionsatu.QuestionSatuActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
+import kotlin.system.exitProcess
 
-class MainActivity : BaseActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,12 @@ class MainActivity : BaseActivity() {
             this?.let { PrefSaveQuestion12(it).setData("null") }
             this?.let { PrefSaveQuestion13(it).setData("null") }
             this?.let { PrefSaveQuestion14(it).setData("null") }
-            intentTo(QuestionSatuActivity::class.java)
+            startActivity<QuestionSatuActivity>()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

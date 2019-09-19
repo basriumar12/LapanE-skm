@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.lapane_skm.R
+import com.example.lapane_skm.constant.Constant
 import com.example.lapane_skm.model.ResponseSumbitSurvey
 import com.example.lapane_skm.network.ApiConfig
 import com.example.lapane_skm.network.ApiInterface
@@ -37,6 +38,7 @@ import kotlinx.android.synthetic.main.activity_question_satu.*
 import kotlinx.android.synthetic.main.fragment_question_dua.view.*
 import retrofit2.Call
 import retrofit2.Response
+import kotlin.system.exitProcess
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -138,9 +140,84 @@ class Question14Fragment : BaseFragment() {
         var sarpras = activity?.let { PrefSaveQuestion14(it).getData()?.toInt() }
 
         //uncoment, jgn lupa ganti base url di class Service Generator
-        //isi username dan pass
-//        val api = ServiceGenerator.createService(ApiInterface::class.java, "", "")
-//        api.postData(
+       // isi username dan pass
+        showProgressDialog("Sedang Submit Data   . . .")
+        val api = ServiceGenerator.createService(ApiInterface::class.java, Constant().USERNAME, Constant().PASS)
+        api.postData(
+            sator!!,
+            layanan!!,
+            usia!!,
+            gender!!,
+            pendidikan!!,
+            perkerjaan!!,
+            persyaratan!!,
+            smp!!,
+            waktu!!,
+            jenis!!,
+            kompotensi!!,
+            perilaku!!,
+            penanganan!!,
+            sarpras!!
+
+        ).enqueue(object : retrofit2.Callback<ResponseSumbitSurvey> {
+
+            override fun onFailure(call: Call<ResponseSumbitSurvey>, t: Throwable) {
+                Log.e("tag", "gagal ${t.message}")
+                dismissProgressDialog()
+                showErrorMessage("Submit Data Error, Periksa Internet")
+            }
+
+            override fun onResponse(call: Call<ResponseSumbitSurvey>, response: Response<ResponseSumbitSurvey>) {
+                Log.e("tag", "sukses ${response.isSuccessful}")
+
+                if (response.isSuccessful) {
+                    dismissProgressDialog()
+
+
+                    val builder = AlertDialog.Builder(activity!!)
+                    builder.setTitle("Info ")
+                    builder.setMessage("Data anda berhasil di kirim, terima kasih telah memberi jawaban survey")
+                    builder.setCancelable(false)
+                    //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
+
+                    builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                        activity?.let { PrefSaveQuestionSatu(it).setData("") }
+                        activity?.let { PrefSaveQuestionDua(it).setData("") }
+                        activity?.let { PrefSaveQuestionTiga(it).setData("") }
+                        activity?.let { PrefSaveQuestionEmpat(it).setData("") }
+                        activity?.let { PrefSaveQuestionLima(it).setData("") }
+                        activity?.let { PrefSaveQuestion6(it).setData("") }
+                        activity?.let { PrefSaveQuestion7(it).setData("") }
+                        activity?.let { PrefSaveQuestion8(it).setData("") }
+                        activity?.let { PrefSaveQuestion9(it).setData("") }
+                        activity?.let { PrefSaveQuestion10(it).setData("") }
+                        activity?.let { PrefSaveQuestion11(it).setData("") }
+                        activity?.let { PrefSaveQuestion12(it).setData("") }
+                        activity?.let { PrefSaveQuestion13(it).setData("") }
+                        activity?.let { PrefSaveQuestion14(it).setData("") }
+
+                        intentTo(MainActivity::class.java)
+                        exitProcess(0)
+
+                    }
+
+
+
+
+                    builder.show()
+
+
+
+
+
+                }
+            }
+        })
+
+
+
+//        showProgressDialog("Submit Data ")
+//        ApiConfig().instance().postData(
 //            sator!!,
 //            layanan!!,
 //            usia!!,
@@ -208,78 +285,6 @@ class Question14Fragment : BaseFragment() {
 //                }
 //            }
 //        })
-
-
-
-        showProgressDialog("Submit Data ")
-        ApiConfig().instance().postData(
-            sator!!,
-            layanan!!,
-            usia!!,
-            gender!!,
-            pendidikan!!,
-            perkerjaan!!,
-            persyaratan!!,
-            smp!!,
-            waktu!!,
-            jenis!!,
-            kompotensi!!,
-            perilaku!!,
-            penanganan!!,
-            sarpras!!
-
-        ).enqueue(object : retrofit2.Callback<ResponseSumbitSurvey> {
-
-            override fun onFailure(call: Call<ResponseSumbitSurvey>, t: Throwable) {
-                Log.e("tag", "gagal ${t.message}")
-                dismissProgressDialog()
-                showErrorMessage("Submit Data Error, Periksa Internet")
-            }
-
-            override fun onResponse(call: Call<ResponseSumbitSurvey>, response: Response<ResponseSumbitSurvey>) {
-                Log.e("tag", "sukses ${response.isSuccessful}")
-
-                if (response.isSuccessful) {
-                    dismissProgressDialog()
-
-
-                    val builder = AlertDialog.Builder(activity!!)
-                    builder.setTitle("Info ")
-                    builder.setMessage("Data anda berhasil di kirim, terima kasih telah memberi jawaban survey")
-                    builder.setCancelable(false)
-                    //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
-
-                    builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                        activity?.let { PrefSaveQuestionSatu(it).setData("") }
-                        activity?.let { PrefSaveQuestionDua(it).setData("") }
-                        activity?.let { PrefSaveQuestionTiga(it).setData("") }
-                        activity?.let { PrefSaveQuestionEmpat(it).setData("") }
-                        activity?.let { PrefSaveQuestionLima(it).setData("") }
-                        activity?.let { PrefSaveQuestion6(it).setData("") }
-                        activity?.let { PrefSaveQuestion7(it).setData("") }
-                        activity?.let { PrefSaveQuestion8(it).setData("") }
-                        activity?.let { PrefSaveQuestion9(it).setData("") }
-                        activity?.let { PrefSaveQuestion10(it).setData("") }
-                        activity?.let { PrefSaveQuestion11(it).setData("") }
-                        activity?.let { PrefSaveQuestion12(it).setData("") }
-                        activity?.let { PrefSaveQuestion13(it).setData("") }
-                        activity?.let { PrefSaveQuestion14(it).setData("") }
-
-                        intentTo(MainActivity::class.java)
-                    }
-
-
-
-
-                    builder.show()
-
-
-
-
-
-                }
-            }
-        })
 
     }
 

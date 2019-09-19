@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.example.lapane_skm.R
 import com.valdesekamdem.library.mdtoast.MDToast
+import kotlin.system.exitProcess
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -77,6 +78,8 @@ fun showErrorMessage(message: String?) {
 
         builder.setPositiveButton(android.R.string.yes) { dialog, which ->
             finish()
+            exitProcess(0)
+
         }
         builder.setNegativeButton(android.R.string.no) { dialog, which ->
 
