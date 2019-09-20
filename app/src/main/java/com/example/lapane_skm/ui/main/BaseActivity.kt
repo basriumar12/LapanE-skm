@@ -9,6 +9,8 @@ import com.example.lapane_skm.R
 import com.valdesekamdem.library.mdtoast.MDToast
 import kotlin.system.exitProcess
 
+
+//base activity untuk menyimpan fungsi yang dipakai berulang2 di setiap class activity
 open class BaseActivity : AppCompatActivity() {
 
 

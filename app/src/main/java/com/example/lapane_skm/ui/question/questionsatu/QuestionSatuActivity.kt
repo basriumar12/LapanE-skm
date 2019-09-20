@@ -140,10 +140,6 @@ class QuestionSatuActivity : BaseActivity() {
 
 
 
-
-
-
-
     }
 
 

@@ -82,13 +82,15 @@ class Question6Fragment : BaseFragment() {
         }
 
 
-
+        // berpidanh ke fragment/activity lain
         tvNext?.setOnClickListener {
             openFragment(Question7Fragment())
 
         }
     }
 
+
+    /// method untuk menampung pertanyaan
     private fun initData() {
         tvNo?.text ="6"
         tvQuestion?.text ="Pekerjaan *"
@@ -127,7 +129,7 @@ class Question6Fragment : BaseFragment() {
             )
 
 
-
+        // panggil adapater dan di masukan list yang diatas
         val adapter = Jabawan6Adapter(activity, data)
         rvDataQuestion?.adapter = adapter
         adapter.notifyDataSetChanged()
@@ -143,6 +145,8 @@ class Question6Fragment : BaseFragment() {
 
     }
 
+
+    // fungsi utnk manggil fragment
     public fun openFragment(fragment: Fragment) {
         if (savedInstanceState == null) {
             childFragmentManager

@@ -7,6 +7,8 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.example.lapane_skm.R
 import com.valdesekamdem.library.mdtoast.MDToast
 
+
+// class ini sama seperti base activtiy/ akan tetapi class ini untuk fragment
 open class BaseFragment: Fragment() {
 
 

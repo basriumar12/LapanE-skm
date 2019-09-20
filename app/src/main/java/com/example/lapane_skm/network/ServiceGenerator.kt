@@ -7,6 +7,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
+
+// class ini merupakan base ketika menggukan library retrofit2, atau bisa dikatakan class standar
 object ServiceGenerator {
 
 

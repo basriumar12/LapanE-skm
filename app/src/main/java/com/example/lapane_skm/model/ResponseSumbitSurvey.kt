@@ -2,6 +2,7 @@ package com.example.lapane_skm.model
 
 import com.google.gson.annotations.SerializedName
 
+//response dari api ketika jawaban dari pertanyaan di submit ke server (api)
 data class ResponseSumbitSurvey(
 
 	@field:SerializedName("usia")

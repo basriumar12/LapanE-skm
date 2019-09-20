@@ -9,6 +9,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 import kotlin.system.exitProcess
 
+
+// class ini page kedua ketika apps dibuka
+// class ini terdapat tombol submit untuk memulai jawab survey
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
         tv_mulai_survey.setOnClickListener {
 
+
+            //penyimpanan jawaban di isi dengan null
             this?.let { PrefSaveQuestionSatu(it).setData("null") }
             this?.let { PrefSaveQuestionDua(it).setData("null") }
             this?.let { PrefSaveQuestionTiga(it).setData("null") }

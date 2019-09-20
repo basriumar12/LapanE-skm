@@ -14,6 +14,9 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+
+        // fungsi untuk membuat page berjeda / berhenti dalam bebberap detik
+        // setelah berakhir detik yang di tentukan akan beralih ke acitivty selanjutnya
         Handler().postDelayed({
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 intentTo(MainActivity::class.java)

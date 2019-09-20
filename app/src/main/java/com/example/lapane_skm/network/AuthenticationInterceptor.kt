@@ -6,6 +6,8 @@ import okhttp3.Response
 
 import java.io.IOException
 
+
+// class ini sabagai header yang digunakan ketika apinya menggunakan basic auth
 class AuthenticationInterceptor(private val authToken: String) : Interceptor {
 
     @Throws(IOException::class)

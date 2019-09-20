@@ -13,6 +13,8 @@ import com.example.lapane_skm.save.PrefSaveQuestion6
 import com.example.lapane_skm.ui.question.questionsatu.ModelSatuanKerja
 import kotlinx.android.synthetic.main.item_layout_jawaban.view.*
 
+
+// adapter sebagai manajamen list, class ini ada untuk setiap class pertanyaan
 class Jabawan6Adapter (var context: Context?, var list: List<ModelSatuanKerja>) :
     RecyclerView.Adapter<Jabawan6Adapter.ViewHolder>() {
 
@@ -36,6 +38,8 @@ class Jabawan6Adapter (var context: Context?, var list: List<ModelSatuanKerja>) 
             mOnItemClickListener?.onItemClick(position)
         }
 
+        // funsi mengecek jawaban pertanyaan ada di posisi item yang keberapa
+        // dan membedakan layoutnya dengan item yang lain
         val dataCheckImage = context?.let { PrefSaveQuestion6(it).getData() }
         Log.e("tag","data 6 $dataCheckImage adapter")
 
